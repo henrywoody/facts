@@ -1,0 +1,31 @@
+= form_for @item do |f|
+	- if @item.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+			%ul
+				- @item.errors.full_messages.each do |message|
+					%li= message
+
+	.field
+		= f.label :title
+		= f.text_field :title
+	.field
+		= f.label :link
+		= f.text_field :link
+	.field
+		= f.label :image_url
+		= f.text_field :image_url
+	.field
+		= f.label :info
+		= f.text_area :info
+
+	%h3 Topics
+	%table
+		%tbody
+			= f.fields_for :join_item_topics do |join_form|
+				= render 'join_item_topic_fields', f: join_form
+	.links
+		= link_to_add_association 'Add to another Topic', f, :join_item_topics
+
+	.actions
+		= f.submit 'Save'

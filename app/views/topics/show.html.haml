@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+	%h1= @topic.title
+%br
+%p
+	%h5 Items:
+	- @topic.items.each do |item|
+		= link_to item.title, item
+		%br
+
+%br
+%br
+
+= link_to 'Edit', edit_topic_path(@topic)
+\|
+= link_to 'All Topics', topics_path

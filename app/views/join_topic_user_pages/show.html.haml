@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Order num:
+  = @join_topic_user_page.order_num
+%p
+  %b Topic:
+  = @join_topic_user_page.topic.title
+%p
+  %b User page:
+  = @join_topic_user_page.user_page.title
+
+= link_to 'Edit', edit_join_topic_user_page_path(@join_topic_user_page)
+\|
+= link_to 'Back', join_topic_user_pages_path

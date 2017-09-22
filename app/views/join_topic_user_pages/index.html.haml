@@ -1,0 +1,25 @@
+%h1 Join Topics & User Pages
+
+%table
+  %thead
+    %tr
+      %th Order num
+      %th Topic
+      %th User page
+      %th
+      %th
+      %th
+
+  %tbody
+    - @join_topic_user_pages.each do |join_topic_user_page|
+      %tr
+        %td= join_topic_user_page.order_num
+        %td= join_topic_user_page.topic.title
+        %td= join_topic_user_page.user_page.title
+        %td= link_to 'Show', join_topic_user_page
+        %td= link_to 'Edit', edit_join_topic_user_page_path(join_topic_user_page)
+        %td= link_to 'Destroy', join_topic_user_page, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Join topic user page', new_join_topic_user_page_path

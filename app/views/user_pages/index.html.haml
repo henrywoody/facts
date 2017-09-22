@@ -1,0 +1,21 @@
+%h1 User Pages
+
+%table
+	%thead
+		%tr
+			%th Title
+			%th
+			%th
+			%th
+
+	%tbody
+		- @user_pages.each do |user_page|
+			%tr
+				%td= user_page.title
+				%td= link_to 'Show', user_page
+				%td= link_to 'Edit', edit_user_page_path(user_page)
+				%td= link_to 'Destroy', user_page, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New User Page', new_user_page_path

@@ -1,0 +1,16 @@
+= form_for @join_item_topic do |f|
+	- if @join_item_topic.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@join_item_topic.errors.count, "error")} prohibited this join_item_topic from being saved:"
+			%ul
+				- @join_item_topic.errors.full_messages.each do |message|
+					%li= message
+
+	.field
+		= f.label :item
+		= f.select :item_id, options_for_select(Item.all.pluck(:title, :id))
+	.field
+		= f.label :topic
+		= f.select :topic_id, options_for_select(Topic.all.pluck(:title, :id))
+	.actions
+		= f.submit 'Save'

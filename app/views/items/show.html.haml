@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+	%h2= @item.title
+%p
+	= link_to @item.link.to_s, @item.link
+%p
+	= #@item.image_url
+	= image_tag @item.image_url, height: '200'
+%p
+	%i Info:
+	= @item.info
+
+%br
+%p
+	%h5 Topics:
+	- @item.topics.each do |topic|
+		= link_to topic.title, topic
+		%br
+
+%br
+%br
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'All Items', items_path

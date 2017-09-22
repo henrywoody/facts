@@ -1,0 +1,28 @@
+%p#notice= notice
+
+%p
+	%h1= @user_page.title
+	= link_to 'Edit', edit_user_page_path(@user_page)
+%br
+
+%p
+	- @user_page.topics.each do |topic|
+		= link_to topic.title, topic
+		= ': '
+		- displayed = topic.items.sample
+		%strong= displayed.title
+		= link_to 'link', displayed.link
+		- unless displayed.image_url == nil
+			%br
+			= image_tag displayed.image_url, height: '200'
+			%br
+		= displayed.info
+		%br
+		%br
+		%br
+
+%br
+%br
+
+
+= link_to 'All User Pages', user_pages_path

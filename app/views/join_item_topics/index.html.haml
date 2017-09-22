@@ -1,0 +1,25 @@
+%h1 Join Items & Topics
+
+%table
+  %thead
+    %tr
+      %th Order num
+      %th Item
+      %th Topic
+      %th
+      %th
+      %th
+
+  %tbody
+    - @join_item_topics.each do |join_item_topic|
+      %tr
+        %td= join_item_topic.order_num
+        %td= join_item_topic.item.title
+        %td= join_item_topic.topic.title
+        %td= link_to 'Show', join_item_topic
+        %td= link_to 'Edit', edit_join_item_topic_path(join_item_topic)
+        %td= link_to 'Destroy', join_item_topic, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Join item topic', new_join_item_topic_path
