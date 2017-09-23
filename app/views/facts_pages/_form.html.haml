@@ -1,0 +1,25 @@
+= form_for @facts_page do |f|
+	- if @facts_page.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@facts_page.errors.count, "error")} prohibited this facts_page from being saved:"
+			%ul
+				- @facts_page.errors.full_messages.each do |message|
+					%li= message
+
+	.field
+		= f.label :title
+		= f.text_field :title
+	.field
+		= f.label :description
+		= f.text_area :description
+
+	%h3 Topics
+	%table
+		%tbody
+			= f.fields_for :join_topic_facts_pages do |join_form|
+				= render 'join_topic_facts_page_fields', f: join_form
+	.links
+		= link_to_add_association 'Add another Topic', f, :join_topic_facts_pages
+		
+	.actions
+		= f.submit 'Save'

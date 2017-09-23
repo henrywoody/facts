@@ -1,0 +1,2 @@
+module FactsPagesHelper
+end

@@ -1,0 +1,19 @@
+%h1 Facts Pages
+
+%table
+	%thead
+		%tr
+			%th Title
+			%th
+			%th
+
+	%tbody
+		- @facts_pages.each do |facts_page|
+			%tr
+				%td= link_to facts_page.title, facts_page
+				%td= link_to 'Edit', edit_facts_page_path(facts_page)
+				%td= link_to 'Destroy', facts_page, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Facts Page', new_facts_page_path
