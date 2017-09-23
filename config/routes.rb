@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items
   resources :user_pages
   resources :topics
+  resources :users, controller: :users, only: :create
 
   #root 'user_pages#index'
   root 'front#show'
