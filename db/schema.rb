@@ -56,12 +56,26 @@ ActiveRecord::Schema.define(version: 20170920190351) do
 
   create_table "user_pages", force: :cascade do |t|
     t.string "title"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_pages_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", limit: 128, null: false
+    t.string "confirmation_token", limit: 128
+    t.string "remember_token", limit: 128, null: false
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
   add_foreign_key "join_item_topics", "items"
   add_foreign_key "join_item_topics", "topics"
   add_foreign_key "join_topic_user_pages", "topics"
   add_foreign_key "join_topic_user_pages", "user_pages"
+  add_foreign_key "user_pages", "users"
 end

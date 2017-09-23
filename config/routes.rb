@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :user_pages
   resources :topics
 
-  root 'user_pages#index'
+  #root 'user_pages#index'
+  root 'front#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
