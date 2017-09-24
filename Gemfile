@@ -61,3 +61,6 @@ gem 'cocoon', :git => 'git://github.com/nathanvda/cocoon.git'
 gem 'jquery-rails'
 
 gem 'clearance'
+
+gem 'nokogiri'
+gem 'wikipedia-client'

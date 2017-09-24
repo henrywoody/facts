@@ -80,7 +80,7 @@ class ItemsController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def item_params
-			params.require(:item).permit(:title, :link, :info, :image_url, join_item_topics_attributes: JoinItemTopic.attribute_names.map(&:to_sym).push(:_destroy))
+			params.require(:item).permit(:title, :link, :description, :image_url, join_item_topics_attributes: JoinItemTopic.attribute_names.map(&:to_sym).push(:_destroy))
 		end
 
 		def assign_order_num(join)

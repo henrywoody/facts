@@ -12,10 +12,8 @@
 		- displayed = topic.items.sample
 		%strong= displayed.title
 		= link_to 'link', displayed.link
-		- unless displayed.image_url == nil
-			%br
+		- if displayed.image_url
 			= image_tag displayed.image_url, height: '200'
-			%br
 		= displayed.description
 		%br
 		%br

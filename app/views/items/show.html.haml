@@ -5,8 +5,8 @@
 %p
 	= link_to @item.link.to_s, @item.link
 %p
-	= #@item.image_url
-	= image_tag @item.image_url, height: '200'
+	- if @item.image_url
+		= image_tag @item.image_url, height: '500'
 %p
 	%i Description:
 	= @item.description
