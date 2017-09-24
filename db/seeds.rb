@@ -47,7 +47,7 @@ war_links.each do |link|
 			page = Wikipedia.find(war_link)
 			#image
 			img_urls = page.image_urls
-			imge url = (img_urls != nil) ? img_urls.sample : nil
+			img_url = (img_urls != nil) ? img_urls.sample : nil
 			#description
 			description = page.summary
 
