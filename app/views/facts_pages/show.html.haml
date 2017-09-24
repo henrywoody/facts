@@ -13,7 +13,9 @@
 		%strong= displayed.title
 		= link_to 'link', displayed.link
 		- if displayed.image_url
-			= image_tag displayed.image_url, height: '200'
+			%br
+			= image_tag displayed.image_url, height: '250'
+			%br
 		= displayed.description
 		%br
 		%br
