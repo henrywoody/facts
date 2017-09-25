@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/henrywoody/wikipedia-client.git
+  revision: e78c3297076259b0d1169daf2da74063d2924e34
+  specs:
+    wikipedia-client (1.7.0)
+
+GIT
   remote: git://github.com/nathanvda/cocoon.git
   revision: e8993dbdd3f39e88f72a844aa7640483d4b654bb
   specs:
@@ -228,7 +234,6 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    wikipedia-client (1.7.0)
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
@@ -260,7 +265,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  wikipedia-client
+  wikipedia-client!
 
 BUNDLED WITH
    1.15.2

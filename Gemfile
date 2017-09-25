@@ -57,10 +57,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'cocoon', :git => 'git://github.com/nathanvda/cocoon.git'
+gem 'cocoon', git: 'git://github.com/nathanvda/cocoon.git'
 gem 'jquery-rails'
 
 gem 'clearance'
 
 gem 'nokogiri'
-gem 'wikipedia-client'
+gem 'wikipedia-client', git: 'git://github.com/henrywoody/wikipedia-client.git'
