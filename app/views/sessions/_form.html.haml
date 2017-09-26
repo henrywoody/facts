@@ -1,0 +1,15 @@
+= form_for :session, url: session_path do |form|
+  %table{align: 'center'}
+    %tr.text-field
+      %td= form.label :email
+      %td= form.text_field :email, type: 'email'
+    %tr.password-field
+      %td= form.label :password
+      %td= form.password_field :password
+    %tr
+      %td
+      %td.submit-field= form.submit
+    %tr.other-links
+      - if Clearance.configuration.allow_sign_up?
+        %td= link_to t(".sign_up"), sign_up_path
+      %td= link_to t(".forgot_password"), new_password_path

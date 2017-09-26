@@ -1,6 +1,7 @@
 #notice= notice
 
 %h1= @topic.title
+= link_to 'Back to all topics', topics_path
 %p{align: 'center'}= @topic.description
 
 %br
@@ -15,6 +16,11 @@
 %br
 %br
 
-= link_to 'Edit', edit_topic_path(@topic)
-\|
-= link_to 'All Topics', topics_path
+= link_to 'Back to all topics', topics_path
+
+%div{align: 'center'}
+	= link_to 'Edit this topic', edit_topic_path(@topic)
+	=# link_to 'Destroy this topic', @topic, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+%br

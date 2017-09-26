@@ -6,4 +6,6 @@ class FactsPage < ApplicationRecord
 	accepts_nested_attributes_for :join_topic_facts_pages, allow_destroy: true
 
 	validates :title, presence: true
+
+	scope :alphabetized, -> { order('LOWER(title)') }
 end

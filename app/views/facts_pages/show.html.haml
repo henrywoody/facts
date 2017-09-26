@@ -1,6 +1,7 @@
 #notice= notice
 
 %h1= @facts_page.title
+= link_to 'Back to all pages', facts_pages_path
 - unless @facts_page.description == ''
 	%p{align: 'center'}
 		= @facts_page.description
@@ -8,13 +9,15 @@
 %br
 
 - @facts_page.topics.each do |topic|
-	%table
+	%table{align: 'center'}
 		- if topic.items.any?
 			- displayed = topic.items.sample
 			%tr
 				%th{colspan: '2'}= displayed.title
 			%tr
-				%td{colspan: '2', align: 'center' }= link_to topic.title, topic
+				%td{colspan: '2', align: 'center' }
+					in
+					= link_to topic.title, topic
 			%tr
 				%td= displayed.description
 				- if displayed.image_url
@@ -23,6 +26,7 @@
 				%td= link_to 'Read more', displayed.link
 			%br
 		- else
+			%br
 			%tr
 				%td= link_to topic.title, topic
 			%tr
@@ -30,7 +34,7 @@
 %br
 %br
 
-= link_to 'Back to All Facts Pages', facts_pages_path
+= link_to 'Back to all pages', facts_pages_path
 
 %br
 

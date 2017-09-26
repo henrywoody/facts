@@ -1,0 +1,12 @@
+#clearance.sign-up
+  %h2= t(".title")
+  %br
+  %br
+  = form_for @user do |form|
+    %table{align: 'center'}
+      = render partial: '/users/form', object: form
+      %tr
+        %td
+        %td.submit-field= form.submit
+      %tr
+        %td.other-links= link_to 'Back', sign_in_path

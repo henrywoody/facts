@@ -20,12 +20,12 @@
 			%td= f.label :topics
 			%td
 			%td
-		%tbody.line_items
+		%tbody.topics
 			= f.fields_for :join_topic_facts_pages, wrapper: false do |join_form|
 				= render 'join_topic_facts_page_fields', f: join_form
 		%tr.links
 			%td
-			%td= link_to_add_association '+Add another Topic', f, :join_topic_facts_pages, data: {"association-insertion-node" => "tbody.line_items", "association-insertion-method" => "append"}
+			%td= link_to_add_association '+Add another Topic', f, :join_topic_facts_pages, data: {"association-insertion-node" => "tbody.topics", "association-insertion-method" => "append"}
 			%td
 		%tr
 			%td

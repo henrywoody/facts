@@ -4,7 +4,7 @@ class FactsPagesController < ApplicationController
   # GET /facts_pages
   # GET /facts_pages.json
   def index
-    @facts_pages = current_user.facts_pages
+    @facts_pages = current_user.facts_pages.alphabetized
   end
 
   # GET /facts_pages/1

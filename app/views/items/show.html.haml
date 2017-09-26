@@ -1,6 +1,7 @@
 #notice= notice
 
 %h2= @item.title
+= link_to 'Back to all items', items_path
 
 %table
 	%tr
@@ -26,6 +27,12 @@
 %br
 %br
 
-= link_to 'Edit', edit_item_path(@item)
-\|
-= link_to 'All Items', items_path
+= link_to 'Back to all items', items_path
+
+%div{align: 'center'}
+	= link_to 'Edit this item', edit_item_path(@item)
+	\|
+	= link_to 'Destroy this item', @item, method: :delete, data: { confirm: 'Are you sure?' }
+	
+%br
+%br
