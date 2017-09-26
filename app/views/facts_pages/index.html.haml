@@ -1,8 +1,10 @@
-%h1 Your Facts Pages
+%h2 Your Pages
 
+%br
+%br
 
 - if @facts_pages.any?
-	%table
+	%table{align: 'center'}
 		%thead
 			%tr
 				%th Title
@@ -11,10 +13,7 @@
 			- @facts_pages.each do |facts_page|
 				%tr
 					%td= link_to facts_page.title, facts_page
+			%tr 
+				%td= link_to '+New Facts Page', new_facts_page_path
 - else
 	= "Start by creating a new Facts Page, which you can add topics to"
-	%br
-
-%br
-
-= link_to 'New Facts Page', new_facts_page_path

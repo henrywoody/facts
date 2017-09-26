@@ -5,21 +5,32 @@
 			%ul
 				- @facts_page.errors.full_messages.each do |message|
 					%li= message
+	%br
 
-	.field
-		= f.label :title
-		= f.text_field :title
-	.field
-		= f.label :description
-		= f.text_area :description
-
-	%h3 Topics
-	%table
-		%tbody
-			= f.fields_for :join_topic_facts_pages do |join_form|
+	%table{align: 'center'}
+		%tr.field
+			%td= f.label :title
+			%td= f.text_field :title
+			%td
+		%tr.field
+			%td= f.label :description
+			%td= f.text_area :description
+			%td
+		%tr
+			%td= f.label :topics
+			%td
+			%td
+		%tbody.line_items
+			= f.fields_for :join_topic_facts_pages, wrapper: false do |join_form|
 				= render 'join_topic_facts_page_fields', f: join_form
-	.links
-		= link_to_add_association 'Add another Topic', f, :join_topic_facts_pages
-		
-	.actions
-		= f.submit 'Save'
+		%tr.links
+			%td
+			%td= link_to_add_association '+Add another Topic', f, :join_topic_facts_pages, data: {"association-insertion-node" => "tbody.line_items", "association-insertion-method" => "append"}
+			%td
+		%tr
+			%td
+			%td.actions
+				= f.submit 'Save'
+			%td
+%br
+%br

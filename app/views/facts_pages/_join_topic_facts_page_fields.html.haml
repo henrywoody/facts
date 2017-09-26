@@ -1,5 +1,6 @@
 %tr.nested-fields
+	%td
 	%td.field
 		= f.select :topic_id, options_for_select(Topic.all.pluck(:title, :id), f.object.topic_id)
 	%td
-		= link_to_remove_association "remove Topic", f
+		= link_to_remove_association "remove", f

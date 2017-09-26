@@ -1,36 +1,43 @@
-%p#notice= notice
+#notice= notice
 
-%p
-	%h1= @facts_page.title
-	= @facts_page.description
+%h1= @facts_page.title
+- unless @facts_page.description == ''
+	%p{align: 'center'}
+		= @facts_page.description
+
 %br
 
-%p
-	- @facts_page.topics.each do |topic|
-		= link_to topic.title, topic
-		= ': '
+- @facts_page.topics.each do |topic|
+	%table
 		- if topic.items.any?
 			- displayed = topic.items.sample
-			%strong= displayed.title
-			= link_to 'link', displayed.link
-			- if displayed.image_url
-				%br
-				= image_tag displayed.image_url, height: '250'
-				%br
-			= displayed.description
-			%br
-			%br
+			%tr
+				%th{colspan: '2'}= displayed.title
+			%tr
+				%td{colspan: '2', align: 'center' }= link_to topic.title, topic
+			%tr
+				%td= displayed.description
+				- if displayed.image_url
+					%td= image_tag displayed.image_url, height: '250'
+			%tr
+				%td= link_to 'Read more', displayed.link
 			%br
 		- else
-			= "There are no items in this topic yet"
-
+			%tr
+				%td= link_to topic.title, topic
+			%tr
+				%td= "There are no items in this topic yet"
 %br
 %br
 
 = link_to 'Back to All Facts Pages', facts_pages_path
 
 %br
+
+%div{align: 'center'}
+	= link_to 'Edit this page', edit_facts_page_path(@facts_page)
+	\|
+	= link_to 'Destroy this page', @facts_page, method: :delete, data: { confirm: 'Are you sure?' }
+
 %br
-= link_to 'Edit this page', edit_facts_page_path(@facts_page)
-\|
-= link_to 'Destroy this page', @facts_page, method: :delete, data: { confirm: 'Are you sure?' }
+%br

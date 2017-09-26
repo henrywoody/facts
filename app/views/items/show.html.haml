@@ -1,22 +1,27 @@
-%p#notice= notice
+#notice= notice
 
-%p
-	%h2= @item.title
-%p
-	= link_to @item.link.to_s, @item.link
-%p
-	- if @item.image_url
-		= image_tag @item.image_url, height: '500'
-%p
-	%i Description:
-	= @item.description
+%h2= @item.title
+
+%table
+	%tr
+		%td= @item.description
+		- if @item.image_url
+			%td= image_tag @item.image_url, height: '300'
 
 %br
+
 %p
-	%h5 Topics:
+	= link_to @item.link.to_s, @item.link
+
+%br
+
+%table{align: 'center'} 
+	%tr
+		%th Topics
 	- @item.topics.each do |topic|
-		= link_to topic.title, topic
-		%br
+		%tr
+			%td= link_to topic.title, topic
+	%br
 
 %br
 %br

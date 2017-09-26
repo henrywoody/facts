@@ -1,14 +1,16 @@
-%p#notice= notice
+#notice= notice
 
-%p
-	%h1= @topic.title
-	= @topic.description
+%h1= @topic.title
+%p{align: 'center'}= @topic.description
+
 %br
-%p
-	%h5 Items:
+
+%table{align: 'center'}
+	%tr
+		%th Items
 	- @topic.items.each do |item|
-		= link_to item.title, item
-		%br
+		%tr
+			%td= link_to item.title, item
 
 %br
 %br

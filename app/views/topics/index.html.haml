@@ -1,6 +1,9 @@
-%h1 Topics
+%h2 Topics
 
-%table
+%br
+%br
+
+%table{align: 'center'}
   %thead
     %tr
       %th Title
@@ -15,7 +18,9 @@
         %td= link_to 'Show', topic
         %td= link_to 'Edit', edit_topic_path(topic)
         %td= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }
+    %tr
+      %td{colspan: '4', align: 'center'}= link_to '+New Topic', new_topic_path
 
 %br
-
-= link_to 'New Topic', new_topic_path
+%br
+%br
