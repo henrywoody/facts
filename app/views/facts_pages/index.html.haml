@@ -16,4 +16,7 @@
 			%tr 
 				%td= link_to '+New Facts Page', new_facts_page_path
 - else
-	= "Start by creating a new Facts Page, which you can add topics to"
+	%p
+		= "Start by creating a"
+		= link_to 'new facts page', new_facts_page_path
+		= ", which you can add topics to"

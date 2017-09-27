@@ -13,8 +13,8 @@ require 'continuation'
 
 
 #some cleaning
-Item.destroy_all
-Topic.destroy_all
+# Item.destroy_all
+# Topic.destroy_all
 
 wikipedia_base_url = "https://en.wikipedia.org"
 
